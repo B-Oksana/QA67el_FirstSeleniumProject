@@ -33,4 +33,5 @@ public class FirstSeleniumTest {
         driver.quit();        // закрывает все вкладки и браузер
        // driver.close();     // закрывает только одну вкладку
     }
+
 }
