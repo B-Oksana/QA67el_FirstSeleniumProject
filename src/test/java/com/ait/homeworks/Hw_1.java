@@ -59,4 +59,31 @@ public class Hw_1 {
         driver.quit();
     }
 
+
+    @Test
+    public void findElementByLinkText() {
+        WebElement linkText = driver.findElement(By.linkText("Computers"));
+        System.out.println(linkText.getText());
+
+        WebElement linkText2 = driver.findElement(By.linkText("Apparel & Shoes"));
+        System.out.println(linkText2.getText());
+    }
+
+    @Test
+    public void findElementByPartialLinkText() {
+        WebElement partialLinkText = driver.findElement(By.partialLinkText("products"));
+        System.out.println(partialLinkText.getText());
+
+        List<WebElement> partialLinkText1 = driver.findElements(By.partialLinkText("products"));
+        System.out.println(partialLinkText1.size());
+
+        WebElement partialLinkText2 = driver.findElement(By.partialLinkText("Compare"));
+        System.out.println(partialLinkText2.getText());
+
+
+
+    }
+
+
+
 }
