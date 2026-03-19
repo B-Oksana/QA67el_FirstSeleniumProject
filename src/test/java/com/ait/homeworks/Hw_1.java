@@ -54,11 +54,6 @@ public class Hw_1 {
 
     }
 
-    @AfterMethod (enabled = false)
-    public void tearDown() {
-        driver.quit();
-    }
-
 
     @Test
     public void findElementByLinkText() {
@@ -80,10 +75,12 @@ public class Hw_1 {
         WebElement partialLinkText2 = driver.findElement(By.partialLinkText("Compare"));
         System.out.println(partialLinkText2.getText());
 
-
-
     }
 
+    @AfterMethod (enabled = false)
+    public void tearDown() {
+        driver.quit();
+    }
 
 
 }
