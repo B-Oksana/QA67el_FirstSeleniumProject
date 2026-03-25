@@ -77,6 +77,11 @@ public class Hw_1 {
 
     }
 
+    @Test
+    public void findElementByCssSelector() {
+
+    }
+
     @AfterMethod (enabled = false)
     public void tearDown() {
         driver.quit();

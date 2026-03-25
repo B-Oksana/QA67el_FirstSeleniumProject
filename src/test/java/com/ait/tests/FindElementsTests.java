@@ -92,6 +92,62 @@ public class FindElementsTests {
         System.out.println(partialLinkText.getText());
     }
 
+
+    /// //////////////////////////////////////////////////////////////////////
+
+
+
+    @Test
+    public void findElementByCssSelector(){
+        // driver.findElement(By.tagName("h1"));
+        // tagName h1-> css "h1"
+        driver.findElement(By.cssSelector("h1"));
+
+        // driver.findElement(By.id("city"));
+        // id = "city" -> css "#city"
+        driver.findElement(By.cssSelector("#city"));
+
+        // driver.findElement(By.className("telephone"));
+        // className = "telephone" -> css ".telephone"
+        driver.findElement(By.cssSelector(".telephone"));
+
+
+
+        // contains -> *
+        driver.findElement(By.cssSelector("[class*='container']"));
+
+        // start -> ^
+        driver.findElement(By.cssSelector("[class^='input']"));
+
+        // end to -> $
+        driver.findElement(By.cssSelector("[class$='icon']"));
+
+
+        // [key='value']
+        driver.findElement(By.cssSelector("[placeholder='City']"));
+        driver.findElement(By.cssSelector("a[href='/terms-of-use']"));
+
+        // tag + class + class
+        driver.findElement(By.cssSelector("a.navigation-link.active"));
+
+
+
+        //one step below(один шаг вниз)
+        driver.findElement(By.cssSelector(".logo>img"));
+
+        // достучаться к дочернему классу
+        // <tag> or <class> or <id>:nth-child(n)
+        WebElement feedback = driver.findElement(By.cssSelector(".feedback-card:nth-child(3)"));
+        System.out.println(feedback.getText());
+        driver.findElement(By.cssSelector(".feedback-card:nth-child(6) .feedback-text"));
+        WebElement search = driver.findElement(By.cssSelector(".navigation-link:nth-child(2)"));
+        System.out.println(search.getText());
+
+
+    }
+
+
+
     @AfterMethod(enabled = false)
     public void tearDown() {
         driver.quit();
