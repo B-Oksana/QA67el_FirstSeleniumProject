@@ -47,6 +47,25 @@ public class FindDemoWebShopElement {
 
     }
 
+    @Test
+    public void findElementByxPath() {
+        driver.findElement(By.xpath("//*[contains(@href,'/register')]"));
+        driver.findElement(By.xpath("//*[@id='small-searchterms']"));
+        driver.findElement(By.xpath("//*[contains(@class,'top-menu')]// a[@href='/books']"));
+        driver.findElement(By.xpath("//*[@href='/141-inch-laptop']/img"));
+        driver.findElement(By.xpath("//*[@class='topic-html-content-header']"));
+        driver.findElement(By.xpath("//*[contains(@class,'window')]"));
+        driver.findElement(By.xpath("//*[contains(@class,'ajax')]"));
+        driver.findElement(By.xpath("//*[contains(@class,'popular')]"));
+        driver.findElement(By.xpath("//*[@id='topcartlink']"));
+        driver.findElement(By.xpath("//*[contains(@class, 'block-category-navigation')][1]"));
+        driver.findElement(By.xpath("//*[contains(@class, 'inactive')][2]"));
+        driver.findElement(By.xpath("//*[@id='flyout-cart']"));
+        driver.findElement(By.xpath("//*[contains(@class,'picture')]/a[@href='/build-your-own-computer']/img"));
+
+
+    }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();

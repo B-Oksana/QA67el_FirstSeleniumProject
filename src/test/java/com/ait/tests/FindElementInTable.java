@@ -50,6 +50,26 @@ public class FindElementInTable {
 
     }
 
+    @Test
+    public void tableXPath() {
+
+        //получить количество рядов
+        List<WebElement> rows = driver.findElements(By.xpath("//tr"));
+        System.out.println(rows.size());
+
+
+        // get row (получить ряд)
+        WebElement mexico = driver.findElement(By.xpath("//*[@id='customers']//tr[4]"));
+        System.out.println(mexico.getText());
+
+        // get row 4 last element(получить ряд и последний элемент)
+        //WebElement country = driver.findElement(By.xpath("//*[@id='customers']//tr[4]//td[3]"));
+        WebElement country = driver.findElement(By.xpath("//*[@id='customers']//tr[4]//td[last()]"));
+        System.out.println(country.getText());
+
+
+    }
+
     @AfterMethod
     public void tearDown(){
         driver.quit();

@@ -73,7 +73,7 @@ public class FindElementsTests {
     }
 
 
-
+    /// /////////////////////////////////////////////////////////////////////////
 
 
 
@@ -143,12 +143,80 @@ public class FindElementsTests {
         WebElement search = driver.findElement(By.cssSelector(".navigation-link:nth-child(2)"));
         System.out.println(search.getText());
 
+    }
+
+
+    /// ////////////////////////////////////////////////////////////////////////////////
+
+
+    // xPath
+
+    @Test
+    public void findElementByxPath() {
+        //    * -> ищи везде
+        //   // tag[@attribute='value']
+        //   // tag[1]
+        //   // tag[text()='Title']
+
+
+        // driver.findElement(By.cssSelector("h1"));
+        driver.findElement(By.xpath("//h1"));
+
+        // driver.findElement(By.cssSelector("#city"));
+        driver.findElement(By.xpath("//*[@id='city']"));
+
+        // driver.findElement(By.cssSelector(".telephone"));
+        driver.findElement(By.xpath("//*[@class='telephone']"));
+
+
+
+        //driver.findElement(By.cssSelector("[class*='container']"));
+        driver.findElement(By.xpath("//*[contains(@class,'container')]"));
+        // driver.findElement(By.cssSelector("[class^='input']"));
+        driver.findElement(By.xpath("//*[contains(@class, 'input')]"));
+        // driver.findElement(By.cssSelector("[class$='icon']"));
+        driver.findElement(By.xpath("//*[contains(@class, 'icon')]"));
+
+
+
+       // WebElement element = driver.findElement(By.xpath("//p[contains(text(), 'best service')]"));
+        // System.out.println(element.getText());
+        WebElement element = driver.findElement(By.xpath("//p[contains(.,'best services')]"));
+
+
+        // equals text
+        driver.findElement(By.xpath("//*[text()='Find your car now!']"));
+        driver.findElement(By.xpath("//*[.='Find your car now!']"));
+
+        //driver.findElement(By.cssSelector(".logo>img"));
+        driver.findElement(By.xpath("//*[@class='logo']/img"));
+
+        driver.findElement(By.xpath("//input[@placeholder='City']"));
+        driver.findElement(By.xpath("//*[contains(@placeholder, 'City')]"));
+
+
+
+
+        // cssSelector -> div>a              // xPath -> //div/a
+        // cssSelector -> div a              // xPath -> // div//a
+
+        // parent родитель
+        // one step up (один шаг вверх)
+        driver.findElement(By.xpath("//h1/parent::*"));
+        driver.findElement(By.xpath("//h1/parent::div"));
+        driver.findElement(By.xpath("//h1/.."));
+
+        //ancestor предок
+        driver.findElement(By.xpath("//h1/ancestor::*"));       // all
+        driver.findElement(By.xpath("//h1/ancestor::div"));     // two steps
+        driver.findElement(By.xpath("//h1/ancestor::div[1]"));  // one step
+
 
     }
 
 
 
-    @AfterMethod(enabled = false)
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
